@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="ISO-8859-1">
+<title>User Details</title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.1.1/css/all.min.css" integrity="sha512-ioRJH7yXnyX+7fXTQEKPULWkMn3CqMcapK0NNtCN8q//sW7ZeVFcbMJ9RvX99TwDg6P8rAH2IqUSt2TLab4Xmw==" crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@1,700&display=swap" rel="stylesheet">
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: 'PT Sans', sans-serif;
+		}
+
+		.container {
+			margin: auto;
+		}
+
+		.nav-brand {
+			font-size: 2em;
+			font-weight: bolder;
+			color: white;
+		}
+
+		#header nav {
+			background-color: #1C2833;
+			width: 100%;
+			padding: 1em;
+		}
+		#add-user {
+			margin-top: 1em;
+		}
+
+		#add-user .btn {
+			width: 100%;
+			font-size: 1.3em;
+		}
+
+		#add-user .btn:hover {
+			background-color: green;
+		}
+		#main1 {
+			margin-top: 3em;
+		}
+
+		#main1 .container {
+			width: 500px;
+		}
+
+		#main1 .container .box a {
+			box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+			font-size: 1.5em;
+			padding: .3em 1em;
+			color: black;
+			text-decoration: none;
+		}
+
+		#main1 .container .box a:hover {
+			background-color: #39C39D;
+		}
+	</style>
+</head>
+<body>
+
+<header id="header">
+	<nav>
+		<div class="container">
+			<div class="text-center">
+				<a href="#" class="nav-brand text-dark">User Details</a>
+			</div>
+		</div>
+	</nav>
+</header>
+<main id="main1">
+	<div class="container">
+		<div class="box">
+			<a th:href="@{/show}" class="btn btn-warning">
+				<span class="text-gradient">All Users</span>
+			</a>
+		</div>
+		<p th:if="${msg}" th:text="${msg}"></p>
+		<div class="col-lg-8 m-auto d-block">
+			<h3>Crud Process Using spring boot</h3>
+			<form th:action="@{/save}" th:object="${data}" method="POST"
+				class="bg-light">
+
+				<div class="form-grp">
+					<label class="label">Id</label> <input type="text" th:field="*{id}"
+						placeholder="Id" class="form-control" readonly="readonly" />
+				</div>
+				<div class="form-grp">
+					<label class="label">Name</label> <input type="text"
+						th:field="*{name}" placeholder="Name"
+						class="form-control" />
+				</div>
+
+				<div class="form-grp">
+					<label class="label">Age</label> <input type="text"
+						th:field="*{age}" placeholder="Age" class="form-control" />
+				</div>
+
+				<div class="form-grp">
+					<label class="label">email</label> <input type="text"
+						th:field="*{email}" placeholder="email" class="form-control" />
+				</div>
+
+
+				<div class="form-grp">
+					<label class="label">address</label> <input type="text"
+						th:field="*{address}" placeholder="email" class="form-control" />
+				</div>
+
+
+				<div class="form-grp">
+					<label class="label">Contact</label> <input type="text"
+						th:field="*{phoneNumber}" placeholder="Contact" class="form-control" />
+				</div>
+
+
+				<br> <input type="submit" class="btn btn-success"
+					value="Submit" />
+
+			</form>
+
+		</div>
+
+	</div>
+
+</main>
+</body>
+</html>
